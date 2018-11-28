@@ -1,0 +1,90 @@
+{% extends "homepage/layout.html" %}
+{% load staticfiles%}
+{% block title%}YumKitchen{%endblock%}
+{% block stylesheet %}<link href="{% static 'css/servicestyles.css' %}" rel="stylesheet">{% endblock %}
+{% block content%}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+			<a class="navbar-brand"><img src="{% static 'img/logo/logo.png' %}" class="img-fluid" style="max-width: 200px;" /></a>
+			<span class="navbar-text">YumKitchen</span>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapse_target">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a type="button" href="{% url 'homepage:index' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/homes.png' %}" class="img-fluid"/> Home</a>
+					</li>
+
+
+                    <li class="nav-item">
+						<a type="button" href="{% url 'homepage:menu' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/menu.png' %}" class="img-fluid"/> Menu</a>
+					</li>
+                    <li class="nav-item">
+						<a type="button" href="{% url 'homepage:services' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/services.png' %}" class="img-fluid"/> Services</a>
+					</li>
+                    <li class="nav-item">
+						<a type="button" href="{% url 'homepage:reservation' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/reservation.png' %}" class="img-fluid"/> Reservation</a>
+					</li>
+                    <li class="nav-item">
+						<a type="button" href="{% url 'homepage:payment' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/payment.png' %}" class="img-fluid"/> Payment</a>
+					</li>
+
+
+					<li class="nav-item">
+						<a type="button" href="{% url 'homepage:news' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/news.png' %}" class="img-fluid"/> News</a>
+					</li>
+					<li class="nav-item">
+						<a type="button" href="{% url 'homepage:information' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/info.png' %}" class="img-fluid"/> Information</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+        <div class="bodyy">
+            <div class="bgimg-1">
+                <div class="caption row">
+                    <span class="border col">{{ info_list.0 }}</span>
+                </div>
+            </div>
+
+            <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+                <h3 style="text-align:center;">{{ info_list.1 }}</h3>
+                <p>{{ info_list.2 }}</p>
+            </div>
+
+            <div class="bgimg-2">
+                <div class="caption row">
+                    <span class="border col" style="background-color:transparent;font-size:25px;color: #f7f7f7;">{{ info_list.3 }}</span>
+                </div>
+            </div>
+
+            <div style="position:relative;">
+                <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+                    <p>{{ info_list.4 }}</p>
+                </div>
+            </div>
+
+            <div class="bgimg-3">
+                <div class="caption row">
+                    <span class="border col" style="background-color:transparent;font-size:25px;color: #f7f7f7;">{{ info_list.5 }}</span>
+                </div>
+            </div>
+
+            <div style="position:relative;">
+                <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+                    <p>{{ info_list.6 }}</p>
+                </div>
+            </div>
+
+            <div class="bgimg-1">
+                <div class="caption row">
+                    <span class="border col">{{ info_list.7 }}</span>
+                </div>
+            </div>
+        </div>
+		<footer class="jumbotron text-center foot_panel w3-animate-bottom" style="margin-bottom:0;">
+			<p><a href=""><img src="{% static 'img/logo/facebook.png' %}"/></a>  |  <a href=""><img src="{% static 'img/logo/twitter.png' %}"/></a>  |  <a href=""><img src="{% static 'img/logo/instagram.png' %}"/></a>
+  			<p>&copy 1999-2018 by YumKitchen Data.</p>
+  			<p> All Rights Reserved.</p>
+  			<p>Powered by YumKitchen.</p>
+		</footer>
+{% endblock %}

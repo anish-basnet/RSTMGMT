@@ -1,0 +1,101 @@
+{% extends "homepage/layout.html" %}
+{% load staticfiles%}
+{%block title%}YumKitchen{%endblock%}
+{% block stylesheet %}<link href="{% static 'css/styles.css' %}" rel="stylesheet">{% endblock %}
+{% block content%}
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+			<a class="navbar-brand"><img src="{% static 'img/logo/logo.png' %}" class="img-fluid" style="max-width: 200px;" /></a>
+			<span class="navbar-text">YumKitchen</span>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#collapse_target">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="collapse_target">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a type="button" href="" class="btn btn-default w3-text-white w3-mobile navbar-btn"><img src="{% static 'img/logo/homes.png' %}" class="img-fluid"/> Home</a>
+					</li>
+					<!--
+					<li class="nav-item">
+						<button type="button" class="btn btn-default navbar-btn">Menu</button>
+					</li>
+					<li class="nav-item">
+						<button type="button" class="btn btn-default navbar-btn">Services</button>
+					</li>
+					<li class="nav-item">
+						<button type="button" class="btn btn-default navbar-btn">Reservation</button>
+					</li>
+					<li class="nav-item">
+						<button type="button" class="btn btn-default navbar-btn">Payment</button>
+					</li>
+
+						-->
+					<li class="nav-item">
+						<a type="button" href="{% url 'homepage:news' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/news.png' %}" class="img-fluid"/> News</a>
+					</li>
+					<li class="nav-item">
+						<a type="button" href="{% url 'homepage:information' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/info.png' %}" class="img-fluid"/> Information</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<section class="container">
+			<video autoplay muted loop width="100%" poster="{% static 'img/pictures/7.JPG' %}">
+				<source src="{% static 'vid/33.mp4' %}" type="video/mp4">
+				<img src="{% static 'img/pictures/8.jpg' %}"/>
+			</video>
+			<p class="mid_logo"><u>YumKitchen</u></p>
+			<p class="ban_text">- Manage, Bills and discover </p>
+			<a type="button" href="{% url 'homepage:login'  %}" class="btn btn-light btn-outline-success w3-text-white loginbtn"><span>Login</span></a>
+			<a type="button" href="{% url 'homepage:signup' %}" class="btn btn-light btn-outline-success w3-text-white signupbtn"><span>Sign Up</span></a>
+		</section>
+		<br/>
+		<article class="row home-article">
+			<div class="col-sm-12">
+				<p>{{ main_info }}</p>
+            </div>
+		</article>
+		<br/>
+		<br/>
+		<div class="card-deck deck_center">
+			<div class="card" style="width:400px;">
+	    		<img class="card-img-top" src="{% static 'img/pictures/menu.jpg' %}" alt="Card image" style="width:100%">
+	    		<div class="card-body">
+	      			<h4 class="card-title">{{ deck_list_info.0 }}</h4>
+	      			<p class="card-text">{{ deck_list_info.1 }}</p>
+	      			<a href="{% url 'homepage:menu' %}" class="btn btn-info">Explore</a>
+	    		</div>
+	  		</div>
+	  		<div class="card" style="width:400px">
+	    		<img class="card-img-top" src="{% static 'img/pictures/8.jpg' %}" alt="Card image" style="width:100%">
+	    		<div class="card-body">
+	      			<h4 class="card-title">{{ deck_list_info.2 }}</h4>
+	      			<p class="card-text">{{ deck_list_info.3 }}</p>
+	      			<a href="{% url 'homepage:services' %}" class="btn btn-info">Explore</a>
+	    		</div>
+	  		</div>
+	  		<div class="card" style="width:400px">
+	    		<img class="card-img-top" src="{% static 'img/pictures/reserve.jpg' %}" alt="Card image" style="width:100%">
+	    		<div class="card-body">
+	      			<h4 class="card-title">{{ deck_list_info.4 }}</h4>
+	      			<p class="card-text">{{ deck_list_info.5 }}</p>
+	      			<a href="{% url 'homepage:reservation' %}" class="btn btn-info">Explore</a>
+	    		</div>
+	  		</div>
+	  		<div class="card" style="width:400px">
+	    		<img class="card-img-top" src="{% static 'img/pictures/payment.jpg' %}" alt="Card image" style="width:100%">
+	    		<div class="card-body">
+	      			<h4 class="card-title">{{ deck_list_info.6 }}</h4>
+	      			<p class="card-text">{{ deck_list_info.7 }}</p>
+	      			<a href="{% url 'homepage:payment' %}" class="btn btn-info">Explore</a>
+	    		</div>
+	  		</div>
+	  	</div>
+	  	<br/>
+	  	<br/>
+		<footer class="jumbotron text-center foot_panel" style="margin-bottom:0;">
+			<p><a href=""><img src="{% static 'img/logo/facebook.png' %}"/></a>  |  <a href=""><img src="{% static 'img/logo/twitter.png' %}"/></a>  |  <a href=""><img src="{% static 'img/logo/instagram.png' %}"/></a>
+  			<p>&copy 1999-2018 by YumKitchen Data.</p>
+  			<p> All Rights Reserved. </p>
+  			<p>Powered by YumKitchen.</p>
+		</footer>
+{% endblock %}
