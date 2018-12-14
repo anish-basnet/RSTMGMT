@@ -12,7 +12,7 @@
 			<div class="collapse navbar-collapse" id="collapse_target">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a type="button" href="" class="btn btn-default w3-text-white w3-mobile navbar-btn"><img src="{% static 'img/logo/homes.png' %}" class="img-fluid"/> Home</a>
+						<button type="button" onclick="location.href='{% url 'homepage:index' %}'" class="btn btn-default w3-text-white w3-mobile navbar-btn"><img src="{% static 'img/logo/homes.png' %}" class="img-fluid"/> Home</button>
 					</li>
 					<!--
 					<li class="nav-item">
@@ -30,10 +30,10 @@
 
 						-->
 					<li class="nav-item">
-						<a type="button" href="{% url 'homepage:news' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/news.png' %}" class="img-fluid"/> News</a>
+						<button type="button" onclick="location.href='{% url 'homepage:news' %}'" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/news.png' %}" class="img-fluid"/> News</button>
 					</li>
 					<li class="nav-item">
-						<a type="button" href="{% url 'homepage:information' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/info.png' %}" class="img-fluid"/> Information</a>
+						<button type="button" onclick="location.href='{% url 'homepage:information' %}'" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/info.png' %}" class="img-fluid"/> Information</button>
 					</li>
 				</ul>
 			</div>
@@ -45,8 +45,8 @@
 			</video>
 			<p class="mid_logo"><u>YumKitchen</u></p>
 			<p class="ban_text">- Manage, Bills and discover </p>
-			<a type="button" href="{% url 'homepage:login'  %}" class="btn btn-light btn-outline-success w3-text-white loginbtn"><span>Login</span></a>
-			<a type="button" href="{% url 'homepage:signup' %}" class="btn btn-light btn-outline-success w3-text-white signupbtn"><span>Sign Up</span></a>
+			<button type="button" onclick="location.href='{% url 'homepage:login' %}'" class="btn btn-light btn-outline-success w3-text-white loginbtn"><span>Login</span></button>
+			<button type="button" onclick="location.href='{% url 'homepage:signup' %}'" class="btn btn-light btn-outline-success w3-text-white signupbtn"><span>Sign Up</span></button>
 		</section>
 		<br/>
 		<article class="row home-article">

@@ -12,28 +12,30 @@
 			<div class="collapse navbar-collapse" id="collapse_target">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item">
-						<a type="button" href="{% url 'homepage:index' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/homes.png' %}" class="img-fluid"/> Home</a>
+						<button type="button" onclick="location.href='{% url 'homepage:index' %}'" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/homes.png' %}" class="img-fluid"/> Home</button>
 					</li>
 
+
                     <li class="nav-item">
-						<a type="button" href="{% url 'homepage:menu' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/menu.png' %}" class="img-fluid"/> Menu</a>
+						<button type="button" onclick="location.href='{% url 'homepage:menu' %}'" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/menu.png' %}" class="img-fluid"/> Menu</button>
 					</li>
                     <li class="nav-item">
-						<a type="button" href="{% url 'homepage:services' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/services.png' %}" class="img-fluid"/> Services</a>
+						<button type="button" onclick="location.href='{% url 'homepage:services' %}'" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/services.png' %}" class="img-fluid"/> Services</button>
 					</li>
                     <li class="nav-item">
-						<a type="button" href="{% url 'homepage:reservation' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/reservation.png' %}" class="img-fluid"/> Reservation</a>
+						<button type="button" onclick="location.href='{% url 'homepage:reservation' %}'" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/reservation.png' %}" class="img-fluid"/> Reservation</button>
 					</li>
                     <li class="nav-item">
-						<a type="button" href="{% url 'homepage:payment' %}" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/payment.png' %}" class="img-fluid"/> Payment</a>
+						<button type="button" onclick="location.href='{% url 'homepage:payment' %}'" class="btn w3-mobile btn-default w3-text-white navbar-btn"><img src="{% static 'img/logo/payment.png' %}" class="img-fluid"/> Payment</button>
 					</li>
+
 
 
 					<li class="nav-item">
-						<a type="button" href="{% url 'homepage:news' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/news.png' %}" class="img-fluid"/> News</a>
+						<button type="button" onclick="location.href='{% url 'homepage:news' %}'" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/news.png' %}" class="img-fluid"/> News</button>
 					</li>
 					<li class="nav-item">
-						<a type="button" href="{% url 'homepage:information' %}" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/info.png' %}" class="img-fluid"/> Information</a>
+						<button type="button" onclick="location.href='{% url 'homepage:information' %}'" class="btn btn-default w3-mobile w3-text-white navbar-btn"><img src="{% static 'img/logo/info.png' %}" class="img-fluid"/> Information</button>
 					</li>
 				</ul>
 			</div>
