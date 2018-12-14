@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@font-face{
+  font-family: Papyrus;
+  src:url('../fonts/PAPYRUS.TTF');
+}
+@font-face{
+    font-family: Laine;
+    src:url('../fonts/Laine.TTF');
+}
+body{
+  font-family: Papyrus;
+}
+.btn-default{
+  color:white;
+    background-color: #343a40 !important;
+}
+.btn-default:hover{
+  color:white;
+    background-color: #1693a0 !important;
+}
+.navbar-text{
+  font-family: Laine;
+  font-size: 30px;
+}
+
+.left_styles_img_text{
+    border:5px ridge yellow;
+    border-radius: 15px;
+    margin:50px;
+    height:auto;
+    width:400px;
+    color:#b94646;
+}
+
+
+
+
+
+
+.foot_panel{
+    background-color: #343a40;
+    color:white;
+    font-size: 13px;
+}
+
+.foot_panel p{
+    margin:0px;
+    padding: 0px;
+}
