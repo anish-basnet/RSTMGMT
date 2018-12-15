@@ -11,6 +11,7 @@ urlpatterns = [
     path('services/',views.services,name='services'),
     path('reservation/',views.reservation,name='reservation'),
     path('payment/',views.payment,name='payment'),
-    path('login/',views.login,name='login'),
+    path('login/',views.loginn,name='login'),
     path('signup/',views.signup,name='signup'),
+    path('dashboard/',views.dashboard,name='dashboard'),
 ]
