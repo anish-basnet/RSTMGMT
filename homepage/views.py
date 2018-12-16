@@ -69,7 +69,7 @@ def signup(request):
     return render(request,'homepage/signup.html',{'frm':form1});
 
 def dashboard(request):
-    return render(request,'homepage/dashboard.html')
+    return render(request, 'dashboard/index.html')
 
 def username_present(username):
     if User.objects.filter(username=username).exists():
