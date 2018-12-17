@@ -119,6 +119,7 @@
             <li ><a href="{% url 'homepage:fast_food' %}"><span class="fa fa-caret-right"></span> Fast food Items</a></li>
             <li ><a href="{% url 'homepage:food' %}"><span class="fa fa-caret-right"></span> Food Items</a></li>
 
+
     </ul></li>
 
         <li><a href="#" data-target=".accounts-menu" class="nav-header collapsed" data-toggle="collapse"><i class="fa fa-fw fa-briefcase"></i> Reservation <span class="label label-info">+3</span></a></li>
@@ -138,16 +139,14 @@
 
     <div class="content">
         <div class="header">
-            <div class="stats">
-    <p class="stat"><span class="label label-info">5</span> Tickets</p>
-    <p class="stat"><span class="label label-success">27</span> Tasks</p>
-    <p class="stat"><span class="label label-danger">15</span> Overdue</p>
-</div>
+
 
             <h1 class="page-title">Dashboard</h1>
                     <ul class="breadcrumb">
             <li><a href="{% url 'homepage:dashboard' %}">Home</a> </li>
-            <li class="active">Dashboard</li>
+
+            <li class="active">Drinks Item</li>
+
         </ul>
 
         </div>
@@ -158,9 +157,18 @@
 
 
     <div class="panel panel-default">
-        <a href="#page-stats" class="panel-heading" data-toggle="collapse">Latest Stats</a>
+        <a href="#page-stats" class="panel-heading" data-toggle="collapse">Add Drinks Items</a>
         <div id="page-stats" class="panel-collapse panel-body collapse in">
 
+
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <!--
                     <div class="row">
                         <div class="col-md-3 col-sm-6">
                             <div class="knob-container">
@@ -187,27 +195,72 @@
                             </div>
                         </div>
                     </div>
+
+                    -->
+                 <div class="dialog">
+                    <div class="panel panel-default">
+                        <p class="panel-heading no-collapse">Drinks Item</p>
+                        <div class="panel-body">
+                            <form method="post">
+                                {% csrf_token %}
+                                <!--
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input type="text" class="form-control span12">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input type="text" class="form-control span12">
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="text" class="form-control span12">
+                                </div>
+                                <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="text" class="form-control span12">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input type="password" class="form-control span12">
+                                </div>
+                                -->
+                                {{ frm1.as_p }}
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary pull-right">Add!</button>
+                                </div>
+                                    <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                    <p><a href="privacy-policy.html" style="font-size: .75em; margin-top: .25em;">Privacy Policy</a></p>
+                </div>
         </div>
     </div>
 
 <div class="row">
-    <div class="col-sm-6 col-md-6">
+    <div class="col-sm-12 col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading no-collapse">Not Collapsible<span class="label label-warning">+10</span></div>
+            <div class="panel-heading no-collapse">Drinks Item List<span class="label label-warning">++</span></div>
             <table class="table table-bordered table-striped">
               <thead>
                 <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
+                  <th>Name</th>
+                  <th>About</th>
+                  <th>Price</th>
+                    <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
+                {% for value in table_fill_value %}
                 <tr>
-                  <td>Mark</td>
-                  <td>Tompson</td>
-                  <td>the_mark7</td>
+                  <td>{{ value.name }}</td>
+                  <td>{{ value.content }}</td>
+                  <td>{{ value.price }}</td>
+                <td><a href="{% url 'homepage:delete_drinks' value.pk %}"><button class="btn btn-primary pull-right" type="submit"><img src="{% static 'images/icons/delete.png' %}" class="img-fluid"/> </button></a> </td>
                 </tr>
+                {% endfor %}
+                <!--
                 <tr>
                   <td>Ashley</td>
                   <td>Jacobs</td>
@@ -233,106 +286,12 @@
                   <td>Albert</td>
                   <td>cab79</td>
                 </tr>
+                -->
               </tbody>
             </table>
         </div>
     </div>
-    <div class="col-sm-6 col-md-6">
-        <div class="panel panel-default">
-            <a href="#widget1container" class="panel-heading" data-toggle="collapse">Collapsible </a>
-            <div id="widget1container" class="panel-body collapse in">
-                <h2>Here's a Tip</h2>
-                <p>This template was developed with <a href="http://middlemanapp.com/" target="_blank">Middleman</a> and includes .erb layouts and views.</p>
-                <p>All of the views you see here (sign in, sign up, users, etc) are already split up so you don't have to waste your time doing it yourself!</p>
-                <p>The layout.erb file includes the header, footer, and side navigation and all of the views are broken out into their own files.</p>
-                <p>If you aren't using Ruby, there is also a set of plain HTML files for each page, just like you would expect.</p>
-            </div>
-        </div>
-    </div>
 </div>
-
-<div class="row">
-    <div class="col-sm-6 col-md-6">
-        <div class="panel panel-default"> 
-            <div class="panel-heading no-collapse">
-                <span class="panel-icon pull-right">
-                    <a href="#" class="demo-cancel-click" rel="tooltip" title="Click to refresh"><i class="fa fa-refresh"></i></a>
-                </span>
-
-                Needed to Close
-            </div>
-            <table class="table list">
-              <tbody>
-                  <tr>
-                      <td>
-                          <a href="#"><p class="title">Care Hospital</p></a>
-                          <p class="info">Sales Rating: 86%</p>
-                      </td>
-                      <td>
-                          <p>Date: 7/19/2012</p>
-                          <a href="#">View Transaction</a>
-                      </td>
-                      <td>
-                          <p class="text-danger h3 pull-right" style="margin-top: 12px;">$20,500</p>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="#"><p class="title">Custom Eyesight</p></a>
-                          <p class="info">Sales Rating: 58%</p>
-                      </td>
-                      <td>
-                          <p>Date: 7/19/2012</p>
-                          <a href="#">View Transaction</a>
-                      </td>
-                      <td>
-                          <p class="text-danger h3 pull-right" style="margin-top: 12px;">$12,600</p>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="#"><p class="title">Clear Dental</p></a>
-                          <p class="info">Sales Rating: 76%</p>
-                      </td>
-                      <td>
-                          <p>Date: 7/19/2012</p>
-                          <a href="#">View Transaction</a>
-                      </td>
-                      <td>
-                          <p class="text-danger h3 pull-right" style="margin-top: 12px;">$2,500</p>
-                      </td>
-                  </tr>
-                  <tr>
-                      <td>
-                          <a href="#"><p class="title">Safe Insurance</p></a>
-                          <p class="info">Sales Rating: 82%</p>
-                      </td>
-                      <td>
-                          <p>Date: 7/19/2012</p>
-                          <a href="#">View Transaction</a>
-                      </td>
-                      <td>
-                          <p class="text-danger h3 pull-right" style="margin-top: 12px;">$22,400</p>
-                      </td>
-                  </tr>
-                    
-              </tbody>
-            </table>
-        </div>
-    </div>
-    <div class="col-sm-6 col-md-6">
-        <div class="panel panel-default">
-            <a href="#widget2container" class="panel-heading" data-toggle="collapse">Collapsible </a>
-            <div id="widget2container" class="panel-body collapse in">
-                <h2>Built with Less</h2>
-                <p>The CSS is built with Less. There is a compiled version included if you prefer plain CSS.</p>
-                <p>Fava bean jícama seakale beetroot courgette shallot amaranth pea garbanzo carrot radicchio peanut leek pea sprouts arugula brussels sprout green bean. Spring onion broccoli chicory shallot winter purslane pumpkin gumbo cabbage squash beet greens lettuce celery. Gram zucchini swiss chard mustard burdock radish brussels sprout groundnut. Asparagus horseradish beet greens broccoli brussels.</p>
-                <p><a class="btn btn-primary">Learn more »</a></p>
-            </div>
-        </div>
-    </div>
-</div>
-
 
             <footer>
                 <hr>
