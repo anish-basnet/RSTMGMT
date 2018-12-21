@@ -6,13 +6,15 @@ from .content_information._services import as_list_services;
 from django.contrib.auth import authenticate,login;
 from django.views.generic import View;
 from django.contrib.auth.models import User;
-from .forms import UserForm,ReservationForms,DrinksForms,FastFoodForms,FoodForms
+from .forms import UserForm,ReservationForms,DrinksForms,FastFoodForms,FoodForms,OrderMainForms,OrderSecondaryForms
 from django.contrib import messages;
 from django.conf import settings
 from django.template import RequestContext
 from django.core.exceptions import ObjectDoesNotExist
+from django.forms import modelformset_factory,modelform_factory
 
-from .models import Reservation_Rest,Drinks_Item,FastFood_Item,Food_Item
+
+from .models import Reservation_Rest,Drinks_Item,FastFood_Item,Food_Item,Order_main,Order_secondary
 
 user_name_current="";
 
@@ -77,8 +79,6 @@ def signup(request):
         form1=UserForm();
     return render(request,'homepage/signup.html',{'frm':form1});
 
-def dashboard(request):
-    return render(request, 'dashboard/index.html',{'username':user_name_current})
 
 def username_present(username):
     if User.objects.filter(username=username).exists():
@@ -89,6 +89,14 @@ def username_present(username):
 
 
 #dashboard views also integrated
+def dashboard(request):
+    frm_factory=modelformset_factory(Order_secondary,fields=('food_name','price'),form=OrderSecondaryForms);
+    frm2=frm_factory();
+    frm1=OrderMainForms();
+    return render(request, 'dashboard/index.html',{'frm1':frm1,'frm2':frm2,'username':user_name_current})
+
+
+
 def delete_reserve(request,pk):
     u = Reservation_Rest.objects.get(pk=pk).delete()
     return HttpResponseRedirect('/dashboard/reserve_now')

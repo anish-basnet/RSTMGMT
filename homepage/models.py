@@ -36,3 +36,17 @@ class Food_Item(models.Model):
 
     def __str__(self):
         return self.name;
+
+
+class Order_main(models.Model):
+    name=models.CharField(max_length=100);
+    total=models.IntegerField(default=0);
+    def __str__(self):
+        return self.name;
+
+class Order_secondary(models.Model):
+    food_name=models.CharField(max_length=50);
+    price=models.IntegerField(default=0);
+    foreign_id=models.ForeignKey('Order_main',on_delete=models.CASCADE);
+    def __str__(self):
+        return self.food_name;
