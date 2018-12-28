@@ -22,4 +22,5 @@ urlpatterns = [
     path('dashboard/fast_food/<int:pk>/',views.delete_fastfood,name='delete_fastfood'),
     path('dashboard/food',views.food,name='food'),
     path('dashboard/food/<int:pk>/', views.delete_food, name='delete_food'),
+    path('dashboard/<int:pk>/', views.delete_bills, name='delete_bills'),
 ]

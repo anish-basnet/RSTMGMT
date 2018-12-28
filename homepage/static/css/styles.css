@@ -160,10 +160,13 @@ body{
 	margin-right: 1vw;
 	font-size: 13px;
 }
+/*
 .container video:hover {
     /* Start the shake animation and make the animation last for 0.5 seconds */
+	/*
     animation: shake 0.5s;
     /* When the animation is finished, start again */
+	/*
     animation-iteration-count: 1;
 }
 
@@ -180,6 +183,7 @@ body{
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
+*/
 
 .home-article{
 	font-size: 13px;

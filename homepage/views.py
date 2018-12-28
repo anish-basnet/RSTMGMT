@@ -90,10 +90,13 @@ def username_present(username):
 
 #dashboard views also integrated
 def dashboard(request):
-    frm_factory=modelformset_factory(Order_secondary,fields=('food_name','price'),form=OrderSecondaryForms);
-    frm2=frm_factory();
-    frm1=OrderMainForms();
-    return render(request, 'dashboard/index.html',{'frm1':frm1,'frm2':frm2,'username':user_name_current})
+    value_list = Order_main.objects.all();
+    frm1=OrderMainForms(request.POST or None);
+    if (frm1.is_valid()):
+        frm1.save();
+        messages.success(request, 'Previous Form submission was successful');
+        frm1 = OrderMainForms();
+    return render(request, 'dashboard/index.html',{'frm1':frm1,'username':user_name_current,'table_fill_value':value_list})
 
 
 
@@ -152,3 +155,9 @@ def delete_food(request,pk):
     u = Food_Item.objects.get(pk=pk).delete()
     #return render(request, 'dashboard/drinksitem.html', {'frm1': frm1, 'table_fill_value': value_list});
     return HttpResponseRedirect('/dashboard/food');
+
+
+def delete_bills(request,pk):
+    u = Order_main.objects.get(pk=pk).delete()
+    #return render(request, 'dashboard/drinksitem.html', {'frm1': frm1, 'table_fill_value': value_list});
+    return HttpResponseRedirect('/dashboard/');
